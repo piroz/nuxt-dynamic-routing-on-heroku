@@ -1,0 +1,12 @@
+{
+  "name": "nuxt-dynamic-routing-on-heroku",
+  "description": "deploy nuxt app (has dynamic routing) to heroku",
+  "repository": "https://github.com/piroz/nuxt-dynamic-routing-on-heroku",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["nuxt"],
+  "env": {
+    "NPM_CONFIG_PRODUCTION": "false",
+    "HOST": "0.0.0.0",
+    "NODE_ENV": "production"
+  }
+}

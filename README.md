@@ -2,6 +2,8 @@
 
 > deploy nuxt app (has dynamic routing) to heroku
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/piroz/nuxt-dynamic-routing-on-heroku)
+
 ## Build Setup
 
 ``` bash
