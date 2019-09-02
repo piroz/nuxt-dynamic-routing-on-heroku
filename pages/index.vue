@@ -1,35 +1,43 @@
 <template>
-  <div class="container">
+  <section class="container">
+    <el-table :data="items" style="width: 100%">
+      <el-table-column prop="id" />
+      <el-table-column prop="link">
+        <template slot-scope="scope">
+          <n-link :to="scope.row ? '/dynamic/' + scope.row.link : ''">
+            {{ scope.row ? scope.row.link : '' }}
+          </n-link>
+        </template>
+      </el-table-column>
+    </el-table>
     <div>
-      <logo />
-      <h1 class="title">
-        nuxt-dynamic-routing-on-heroku
-      </h1>
-      <h2 class="subtitle">
-        deploy nuxt app (has dynamic routing) to heroku
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <el-input v-model="link" />
+      <el-button @click="addLink">add item</el-button>
     </div>
-  </div>
+  </section>
 </template>
-
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapMutations } from 'vuex'
 
 export default {
-  components: {
-    Logo
+  data() {
+    return {
+      link: ''
+    }
+  },
+  computed: {
+    items() {
+      return this.$store.state.items
+    }
+  },
+  methods: {
+    ...mapMutations({
+      add: 'add'
+    }),
+    addLink() {
+      this.add(this.link)
+      this.link = ''
+    }
   }
 }
 </script>
